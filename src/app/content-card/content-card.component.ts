@@ -11,8 +11,8 @@ export interface Content {
   tags?: string[];
 }
 
-class ContentList {
-  private _types: Content[];
+export class ContentList {
+  public _types: Content[];
   constructor() {
     this._types = [];
   }
@@ -52,10 +52,19 @@ export class ContentCardComponent implements OnInit {
     };
     this.cList = new ContentList();
     this.cList.addContentToArray(this.content);
+    // console.log(this.cList);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cList.addContentToArray(this.content);
+    this.cList.htmlContent(0);
+
+    console.log(this.cList._types);
+    this.processContent(this.content);
+  }
+
+  processContent(c: Content): void {
+    console.log(c.body);
   }
 
 }
