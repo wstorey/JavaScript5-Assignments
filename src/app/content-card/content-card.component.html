@@ -1,1 +1,5 @@
-<p>content-card works!</p>
+<span [innerHTML]="cList.htmlContent(0)"></span>
+<span [innerHTML]="cList.htmlContent(1)"></span>
+<span [innerHTML]="cList.htmlContent(2)"></span>
+
+<p>Number of elements: {{ cList.countContentArray() }}</p>
