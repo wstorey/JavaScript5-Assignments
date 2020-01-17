@@ -12,13 +12,6 @@ export interface Content {
 }
 
 class ContentList {
-  // set types(type: Content[]) {
-  //   this._types = type;
-  // }
-  // static htmlContent(i: number) {
-  //   // return ContentList[i];
-  //   return this.htmlContent(ContentList[i]);
-  // }
   private _types: Content[];
   constructor() {
     this._types = [];
@@ -26,8 +19,16 @@ class ContentList {
   get types(): Content[] {
     return this._types;
   }
-  static addContentToArray(content: Content, _types: Content[]) {
+  // static????
+  addContentToArray(content: Content) {
     this._types.push(content);
+  }
+  countContentArray() {
+    return this._types.length;
+  }
+  htmlContent(i: number) {
+    console.log(this._types[i]);
+    return this._types[i];
   }
 }
 
@@ -50,11 +51,11 @@ export class ContentCardComponent implements OnInit {
       tags: ['tech', 'Will']
     };
     this.cList = new ContentList();
-    // this.cList.types(this.content);
+    this.cList.addContentToArray(this.content);
   }
 
   ngOnInit() {
-
+    this.cList.addContentToArray(this.content);
   }
 
 }
