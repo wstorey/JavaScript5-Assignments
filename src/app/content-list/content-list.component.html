@@ -1,7 +1,2 @@
 <!--<p>content-list works!</p>-->
-<div *ngFor="let item of content | slice:0:5; index as i; last as isLast" [class.is-last]="isLast">
-  <img src="{{item.imgUrl}}" alt="Image" />
-  <p>{{item.body}}</p>
-  <p>{{item.author}} | {{item.title}} | {{item.type}}</p>
-  <p *ngIf="item.tags">{{item.tags}}</p>
-</div>
+<app-content-card *ngFor="let item of content | slice:0:5; index as i; last as isLast" [content]="item" [class.is-last]="isLast"></app-content-card>
