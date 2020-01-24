@@ -1,5 +1,12 @@
-<span [innerHTML]="cList.htmlContent(0)"></span>
-<span [innerHTML]="cList.htmlContent(1)"></span>
-<span [innerHTML]="cList.htmlContent(2)"></span>
+<!--<span [innerHTML]="cList.htmlContent(0)"></span>-->
+<!--<span [innerHTML]="cList.htmlContent(1)"></span>-->
+<!--<span [innerHTML]="cList.htmlContent(2)"></span>-->
 
-<p>Number of elements: {{ cList.countContentArray() }}</p>
+<!--<p>Number of elements: {{ cList.countContentArray() }}</p>-->
+
+<img src="{{content.imgUrl}}" alt="{{content.title}}" (click)="displayId(content)"/>
+<p>{{content.body}}</p>
+<strong>{{content.title}}</strong>
+<p>By: {{content.author}}</p>
+<p>Genre: {{content.type}}</p>
+<p *ngIf="content.tags">Tags: {{content.tags}}</p>
