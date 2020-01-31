@@ -4,9 +4,9 @@
 
 <!--<p>Number of elements: {{ cList.countContentArray() }}</p>-->
 
-<img src="{{content.imgUrl}}" alt="{{content.title}}" (click)="displayId(content)"/>
-<p>{{content.body}}</p>
-<strong>{{content.title}}</strong>
-<p>By: {{content.author}}</p>
-<p>Genre: {{content.type}}</p>
-<p *ngIf="content.tags">Tags: {{content.tags}}</p>
+<img src="{{ content.imgUrl }}" alt="{{ content.title }}" (click)="displayId(content)"/>
+<p>{{ content.body }}</p>
+<strong>{{ content.title }}</strong>
+<p>By: {{ content.author }}</p>
+<p>Type: {{ content.type }}</p>
+<p *ngIf="content.tags">Tags: {{ content.tags }}</p>

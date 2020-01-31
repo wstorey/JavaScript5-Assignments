@@ -1,2 +1,6 @@
 <!--<p>content-list works!</p>-->
-<app-content-card *ngFor="let item of content | slice:0:5; index as i; last as isLast" [content]="item" [class.is-last]="isLast"></app-content-card>
+<!--<app-content-card *ngFor="let book of content | contentFilter | slice:0:5; last as isLast" [content]="book" [class.is-last]="isLast"></app-content-card>-->
+
+<!--<app-content-card *ngFor="let book of content | contentFilter | slice:0:5; last as isLast" [content]="book" [class.is-last]="isLast"></app-content-card>-->
+
+<app-content-card *ngFor="let book of content | contentFilter" [content]="book"></app-content-card>
