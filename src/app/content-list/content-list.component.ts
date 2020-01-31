@@ -8,6 +8,7 @@ import { Content } from '../content-card/content-card-helper';
 })
 export class ContentListComponent implements OnInit {
   content: Content[];
+  titleBinding: string;
 
   constructor() {  }
 
@@ -35,7 +36,7 @@ export class ContentListComponent implements OnInit {
         id: 3,
         author: 'Draven',
         imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Shades_of_light_blue.png',
-        type: 'tech',
+        type: 'fact',
         title: 'The Sky is Blue',
         body: 'Why tho?',
         tags: ['environmental science', 'Draven']
@@ -44,7 +45,7 @@ export class ContentListComponent implements OnInit {
         id: 4,
         author: 'Jack',
         imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Competitive_table_tennis.jpg',
-        type: 'Table',
+        type: 'fact',
         title: 'Table',
         body: 'The true story',
         tags: ['table?', 'Jack']
@@ -53,7 +54,7 @@ export class ContentListComponent implements OnInit {
         id: 5,
         author: 'Nathan',
         imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Hello_World_Brian_Kernighan_1978.jpg',
-        type: 'tech',
+        type: 'fiction',
         title: 'Hello World',
         body: 'My first program - psychological look into Hello World',
         tags: ['tech', 'Nathan']
@@ -63,10 +64,27 @@ export class ContentListComponent implements OnInit {
         author: 'Will',
         imgUrl: 'https://angular.io/assets/images/logos/angular/angular.png',
         type: 'tech',
-        title: 'This Is should not show up',
+        title: 'This should not show up',
         body: 'Look away',
         tags: ['Nah']
       }
     ];
+    // this.titleBinding = 'Book Title';
+  }
+  findTitle(title: string): void {
+    // const resultMsg = document.querySelector('.search-container .result-field') as HTMLElement;
+    let found = false;
+    this.content.forEach(c => {
+      if (c.title === title) {
+        found = true;
+      }
+    });
+
+    if (found) {
+      this.titleBinding = `${title} was found`;
+    } else {
+      this.titleBinding = `${title} was not found`;
+    }
+    return;
   }
 }

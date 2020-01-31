@@ -1,9 +1,31 @@
-app-content-card {
-  display: block;
-  border: 1px solid black;
-  margin-top: 5px;
+.search-container {
+  //button {
+  //  height: 14px;
+  //  width: 10%;
+  //}
 }
 
-.is-last {
-  border: 2px solid black;
+.fact-container,
+.fiction-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: repeat(2, auto);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+
+  app-content-card {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .fact {
+    border: 2px solid green;
+  }
+
+  .fiction {
+    border: 2px solid blue;
+  }
 }
+
+
+

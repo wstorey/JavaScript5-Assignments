@@ -1,2 +1,13 @@
-<!--<p>content-list works!</p>-->
-<app-content-card *ngFor="let item of content | slice:0:5; index as i; last as isLast" [content]="item" [class.is-last]="isLast"></app-content-card>
+<article class="search-container">
+  <input placeholder="Find Title" #titleToFind/>
+  <button (click)="findTitle(titleToFind.value)">Search</button>
+  <p>{{ titleBinding }}</p>
+</article>
+
+<article class="fact-container">
+  <app-content-card *ngFor="let book of content | contentFilter:'fact' | slice:0:5; last as isLast" [content]="book" [class.is-last]="isLast" class="fact"></app-content-card>
+</article>
+
+<article class="fiction-container">
+  <app-content-card *ngFor="let book of content | contentFilter:'fiction' | slice:0:5; last as isLast" [content]="book" [class.is-last]="isLast" class="fiction"></app-content-card>
+</article>
