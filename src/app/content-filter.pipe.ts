@@ -6,8 +6,16 @@ import { Content } from './content-card/content-card-helper';
 })
 export class ContentFilterPipe implements PipeTransform {
 
-  transform(book: Content): string {
-    return book.type || 'fiction';
+  match: Content[];
+
+  transform(book: Content[], type: string): Content[] {
+    this.match = [];
+    book.forEach((c: Content) => {
+      if (c.type === type) {
+        this.match.push(c);
+      }
+    });
+    return this.match;
   }
 
   // transform(contentList: Content[], allowNullTags?: boolean): Content[] {

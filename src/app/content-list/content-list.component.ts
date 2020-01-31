@@ -8,6 +8,7 @@ import { Content } from '../content-card/content-card-helper';
 })
 export class ContentListComponent implements OnInit {
   content: Content[];
+  titleBinding: string;
 
   constructor() {  }
 
@@ -68,5 +69,22 @@ export class ContentListComponent implements OnInit {
         tags: ['Nah']
       }
     ];
+    // this.titleBinding = 'Book Title';
+  }
+  findTitle(title: string): void {
+    // const resultMsg = document.querySelector('.search-container .result-field') as HTMLElement;
+    let found = false;
+    this.content.forEach(c => {
+      if (c.title === title) {
+        found = true;
+      }
+    });
+
+    if (found) {
+      this.titleBinding = `${title} was found`;
+    } else {
+      this.titleBinding = `${title} was not found`;
+    }
+    return;
   }
 }

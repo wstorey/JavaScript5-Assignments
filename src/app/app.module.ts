@@ -6,6 +6,7 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { SafePipe } from './safe.pipe';
 import { ContentListComponent } from './content-list/content-list.component';
 import { ContentFilterPipe } from './content-filter.pipe';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { ContentFilterPipe } from './content-filter.pipe';
     ContentListComponent,
     ContentFilterPipe
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
