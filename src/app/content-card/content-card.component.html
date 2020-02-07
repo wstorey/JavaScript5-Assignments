@@ -8,12 +8,12 @@
     <img src="https://angular.io/assets/images/logos/angular/angular.png" alt="{{ content.title }}" (click)="displayId(content)"/>
 </ng-template>
 <p>{{ content.body }}</p>
-<h4 appDecoration>{{ content.title }}</h4>
+<h4 appDecoration decoration="underline">{{ content.title }}</h4>
 <p>By: {{ content.author }}</p>
 <p>Type: {{ content.type }}</p>
 <span *ngIf="content.tags">
   <p>Tags:</p>
   <ul *ngFor="let tag of content.tags">
-      <li appDecoration>{{ tag }}</li>
+      <li appDecoration decoration="bold">{{ tag }}</li>
   </ul>
 </span>

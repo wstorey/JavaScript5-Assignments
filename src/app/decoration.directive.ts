@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 import {getAttributeValue} from 'codelyzer/util/getAttributeValue';
 
 @Directive({
@@ -6,17 +6,31 @@ import {getAttributeValue} from 'codelyzer/util/getAttributeValue';
 })
 export class DecorationDirective {
 
+  @Input() decoration: string;
   constructor(private elm: ElementRef) { }
 
   @HostListener('mouseover') onHoverUnderline() {
-    this.elm.nativeElement.style.textDecoration = 'underline';
+    this.setDecoration(this.decoration);
   }
 
   @HostListener('mouseout') outOfHover() {
-    this.elm.nativeElement.style.textDecoration = 'none';
+    this.removeDecoration(this.decoration);
   }
 
-  setDecoration(c): void {
-
+  setDecoration(decoration): void {
+    if (decoration === 'underline') {
+      this.elm.nativeElement.style.textDecoration = 'underline';
+    } else if (decoration === 'bold') {
+      this.elm.nativeElement.style.fontWeight = 'bold';
+    }
+    return;
+  }
+  removeDecoration(decoration): void {
+    if (decoration === 'underline') {
+      this.elm.nativeElement.style.textDecoration = 'none';
+    } else if (decoration === 'bold') {
+      this.elm.nativeElement.style.fontWeight = 'normal';
+    }
+    return;
   }
 }
