@@ -5,7 +5,7 @@
 </article>
 
 <article class="fact-container">
-  <app-content-card *ngFor="let book of content | contentFilter:'fact' | slice:0:5; last as isLast" [content]="book" [class.is-last]="isLast" class="fact"></app-content-card>
+  <app-content-card *ngFor="let book of content | contentFilter:'fact' | slice:0:10; last as isLast" [content]="book" [class.is-last]="isLast" class="fact"></app-content-card>
 </article>
 
 <article class="fiction-container">

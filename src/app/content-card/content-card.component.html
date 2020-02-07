@@ -3,10 +3,17 @@
 <!--<span [innerHTML]="cList.htmlContent(2)"></span>-->
 
 <!--<p>Number of elements: {{ cList.countContentArray() }}</p>-->
-
-<img src="{{ content.imgUrl }}" alt="{{ content.title }}" (click)="displayId(content)"/>
+<img *ngIf="content.imgUrl; else defaultImage" src="{{ content.imgUrl }}" alt="{{ content.title }}" (click)="displayId(content)"/>
+  <ng-template #defaultImage>
+    <img src="https://angular.io/assets/images/logos/angular/angular.png" alt="{{ content.title }}" (click)="displayId(content)"/>
+</ng-template>
 <p>{{ content.body }}</p>
-<strong>{{ content.title }}</strong>
+<h4 appDecoration>{{ content.title }}</h4>
 <p>By: {{ content.author }}</p>
 <p>Type: {{ content.type }}</p>
-<p *ngIf="content.tags">Tags: {{ content.tags }}</p>
+<span *ngIf="content.tags">
+  <p>Tags:</p>
+  <ul *ngFor="let tag of content.tags">
+      <li appDecoration>{{ tag }}</li>
+  </ul>
+</span>
