@@ -9,7 +9,7 @@ export class DecorationDirective {
   @Input() decoration: string;
   constructor(private elm: ElementRef) { }
 
-  @HostListener('mouseover') onHoverUnderline() {
+  @HostListener('mouseover') onHover() {
     this.setDecoration(this.decoration);
   }
 
@@ -19,9 +19,9 @@ export class DecorationDirective {
 
   setDecoration(decoration): void {
     if (decoration === 'underline') {
-      this.elm.nativeElement.style.textDecoration = 'underline';
+      this.elm.nativeElement.style.textDecoration = decoration;
     } else if (decoration === 'bold') {
-      this.elm.nativeElement.style.fontWeight = 'bold';
+      this.elm.nativeElement.style.fontWeight = decoration;
     }
     return;
   }

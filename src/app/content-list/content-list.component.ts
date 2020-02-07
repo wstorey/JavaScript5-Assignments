@@ -62,6 +62,7 @@ export class ContentListComponent implements OnInit {
       {
         id: 6,
         author: 'Will',
+        imgUrl: '',
         type: 'fact',
         title: 'Star Trek',
         body: 'It seems cool and I wanna watch it but I have no time.',
