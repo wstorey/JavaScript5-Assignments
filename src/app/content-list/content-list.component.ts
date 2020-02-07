@@ -62,11 +62,25 @@ export class ContentListComponent implements OnInit {
       {
         id: 6,
         author: 'Will',
-        imgUrl: 'https://angular.io/assets/images/logos/angular/angular.png',
-        type: 'tech',
-        title: 'This should not show up',
-        body: 'Look away',
-        tags: ['Nah']
+        imgUrl: '',
+        type: 'fact',
+        title: 'Star Trek',
+        body: 'It seems cool and I wanna watch it but I have no time.',
+        tags: ['Star Trek', '#relatable']
+      },
+      {
+        id: 7,
+        author: 'Database Joe',
+        type: 'fiction',
+        title: 'Database Design 101',
+        body: 'How to make some good DBs'
+      },
+      {
+        id: 8,
+        author: 'Will',
+        type: 'fiction',
+        title: 'Top 10 Kpop Songs',
+        body: '*Watch Mojo jingle* Lots of kpop out there huh'
       }
     ];
     // this.titleBinding = 'Book Title';
