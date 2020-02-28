@@ -1,3 +1,7 @@
+<article class="create-content">
+  <app-create-content [startingId]="content.length" (newContentEvent)="addContentToList($event)"></app-create-content>
+</article>
+
 <article class="search-container">
   <input placeholder="Find Title" #titleToFind/>
   <button (click)="findTitle(titleToFind.value)">Search</button>

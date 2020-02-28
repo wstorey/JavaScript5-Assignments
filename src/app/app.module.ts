@@ -8,6 +8,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ContentFilterPipe } from './content-filter.pipe';
 import {FormsModule} from '@angular/forms';
 import { DecorationDirective } from './decoration.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DecorationDirective } from './decoration.directive';
     SafePipe,
     ContentListComponent,
     ContentFilterPipe,
-    DecorationDirective
+    DecorationDirective,
+    CreateContentComponent
   ],
     imports: [
         BrowserModule,
