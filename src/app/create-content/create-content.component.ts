@@ -12,6 +12,14 @@ export class CreateContentComponent implements OnInit {
   @Output() newContentEvent = new EventEmitter<Content>();
   newContentItem: Content;
   currentId: number;
+
+  title: string;
+  author: string;
+  body: string;
+  imgUrl: string;
+  type: string;
+  tags: string;
+  validator: string;
   constructor() { }
 
   ngOnInit() {
@@ -19,24 +27,44 @@ export class CreateContentComponent implements OnInit {
   }
 
   createContent(title: string, author: string, body: string, imgUrl?: string, type?: string, tags?: string): void {
-    this.newContentItem = {
-      id: this.currentId,
-      title,
-      author,
-      body
-    };
-    if (imgUrl) {
-      this.newContentItem.imgUrl = imgUrl;
-    }
-    if (type) {
-      this.newContentItem.type = type;
-    }
-    if (tags) {
-      this.newContentItem.tags = [tags];
-    }
-    this.currentId++;
-    this.newContentEvent.emit(this.newContentItem);
-    console.log(this.newContentItem);
+    const ourPromise = new Promise((success, fail) => {
+      this.newContentItem = {
+        id: this.currentId,
+        title,
+        author,
+        body
+      };
+      if (imgUrl) {
+        this.newContentItem.imgUrl = imgUrl;
+      }
+      if (type) {
+        this.newContentItem.type = type;
+      }
+      if (tags) {
+        this.newContentItem.tags = [tags];
+      }
+      if (title && author && body) {
+        this.currentId++;
+        this.newContentEvent.emit(this.newContentItem);
+        success(`${title} was added successfully`);
+      } else {
+        fail('Content FAILED to add');
+      }
+    });
+    ourPromise.then(successResult => {
+      this.validator = '';
+      this.title = '';
+      this.author = '';
+      this.body = '';
+      this.imgUrl = '';
+      this.type = '';
+      this.tags = '';
+
+      return console.log(successResult);
+    })
+    .catch(failResult => {
+      this.validator = failResult;
+    });
   }
 
 }
