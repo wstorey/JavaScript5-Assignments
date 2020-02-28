@@ -101,4 +101,10 @@ export class ContentListComponent implements OnInit {
     }
     return;
   }
+
+  addContentToList(newContentEvent): void {
+    this.content.push(newContentEvent);
+    const clonedContentArray = Object.assign([], this.content);
+    this.content = clonedContentArray;
+  }
 }

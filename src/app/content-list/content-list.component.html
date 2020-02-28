@@ -1,3 +1,8 @@
+<article class="create-content">
+  <h4>Add a Book</h4>
+  <app-create-content [startingId]="content.length" (newContentEvent)="addContentToList($event)"></app-create-content>
+</article>
+
 <article class="search-container">
   <input placeholder="Find Title" #titleToFind/>
   <button (click)="findTitle(titleToFind.value)">Search</button>
