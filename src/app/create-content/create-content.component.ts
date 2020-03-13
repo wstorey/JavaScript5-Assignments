@@ -28,33 +28,69 @@ export class CreateContentComponent implements OnInit {
     this.currentId = this.startingId;
   }
 
+  // createContent(title: string, author: string, body: string, imgUrl?: string, type?: string, tags?: string): void {
+  //   const ourPromise = new Promise((success, fail) => {
+  //     this.newContentItem = {
+  //       id: this.currentId,
+  //       title,
+  //       author,
+  //       body
+  //     };
+  //     if (imgUrl) {
+  //       this.newContentItem.imgUrl = imgUrl;
+  //     }
+  //     if (type) {
+  //       this.newContentItem.type = type;
+  //     }
+  //     if (tags) {
+  //       this.newContentItem.tags = [tags];
+  //     }
+  //     if (title && author && body) {
+  //       this.currentId++;
+  //       this.newContentEvent.emit(this.newContentItem);
+  //       this.contentService.addContent(this.newContentItem);
+  //       success(`${title} was added successfully`);
+  //     } else {
+  //       fail('Content FAILED to add');
+  //     }
+  //   });
+  //   ourPromise.then(successResult => {
+  //     this.validator = '';
+  //     this.title = '';
+  //     this.author = '';
+  //     this.body = '';
+  //     this.imgUrl = '';
+  //     this.type = '';
+  //     this.tags = '';
+  //
+  //     return console.log(successResult);
+  //   })
+  //   .catch(failResult => {
+  //     this.validator = failResult;
+  //   });
+  // }
+
   createContent(title: string, author: string, body: string, imgUrl?: string, type?: string, tags?: string): void {
-    const ourPromise = new Promise((success, fail) => {
-      this.newContentItem = {
-        id: this.currentId,
-        title,
-        author,
-        body
-      };
-      if (imgUrl) {
-        this.newContentItem.imgUrl = imgUrl;
-      }
-      if (type) {
-        this.newContentItem.type = type;
-      }
-      if (tags) {
-        this.newContentItem.tags = [tags];
-      }
-      if (title && author && body) {
-        this.currentId++;
-        this.newContentEvent.emit(this.newContentItem);
-        this.contentService.addContent(this.newContentItem);
-        success(`${title} was added successfully`);
-      } else {
-        fail('Content FAILED to add');
-      }
-    });
-    ourPromise.then(successResult => {
+    this.newContentItem = {
+      // id: this.currentId,
+      title,
+      author,
+      body,
+    };
+    if (imgUrl) {
+      this.newContentItem.imgUrl = imgUrl;
+    }
+    if (type) {
+      this.newContentItem.type = type;
+    }
+    if (tags) {
+      this.newContentItem.tags = [tags];
+    }
+    if (title && author && body) {
+      this.currentId++;
+      this.newContentEvent.emit(this.newContentItem);
+      this.contentService.addContent(this.newContentItem);
+
       this.validator = '';
       this.title = '';
       this.author = '';
@@ -63,11 +99,10 @@ export class CreateContentComponent implements OnInit {
       this.type = '';
       this.tags = '';
 
-      return console.log(successResult);
-    })
-    .catch(failResult => {
-      this.validator = failResult;
-    });
+      return console.log(`${title} was added successfully`);
+    } else {
+      this.validator = 'Content FAILED to add';
+    }
   }
 
 }

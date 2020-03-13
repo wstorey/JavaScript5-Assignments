@@ -38,8 +38,12 @@ export class ContentListComponent implements OnInit {
   }
 
   addContentToList(newContentEvent): void {
-    this.content.push(newContentEvent);
-    const clonedContentArray = Object.assign([], this.content);
-    this.content = clonedContentArray;
+    this.contentService.addContent(newContentEvent)
+      .subscribe(c => {
+        this.content.push(c)
+        const clonedContentArray = Object.assign([], this.content);
+        this.content = clonedContentArray;
+      });
+    console.log(this.content);
   }
 }
