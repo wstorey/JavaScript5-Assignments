@@ -12,7 +12,9 @@ export class ContentListComponent implements OnInit {
   content: Content[];
   titleBinding: string;
 
-  constructor(private contentService: ContentService) {  }
+  constructor(private contentService: ContentService) {
+    this.content = [];
+  }
 
   ngOnInit() {
     // this.titleBinding = 'Book Title';

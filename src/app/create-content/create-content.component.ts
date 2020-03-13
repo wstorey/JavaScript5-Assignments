@@ -48,7 +48,7 @@ export class CreateContentComponent implements OnInit {
       if (title && author && body) {
         this.currentId++;
         this.newContentEvent.emit(this.newContentItem);
-        this.contentService.addContentObs();
+        this.contentService.addContent(this.newContentItem);
         success(`${title} was added successfully`);
       } else {
         fail('Content FAILED to add');
