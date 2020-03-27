@@ -14,6 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule, MatRippleModule} from '@angular/material';
+import { AddContentComponent } from './add-content/add-content.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,15 +31,24 @@ import { InMemoryDataService } from './in-memory-data.service';
     ContentFilterPipe,
     DecorationDirective,
     CreateContentComponent,
-    MessagesComponent
+    MessagesComponent,
+    AddContentComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false,
-        delay: 1000 })
+      InMemoryDataService, {
+        dataEncapsulation: false,
+        delay: 1000
+      }),
+    MatButtonModule,
+    MatInputModule,
+    MatDividerModule,
+    MatRippleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

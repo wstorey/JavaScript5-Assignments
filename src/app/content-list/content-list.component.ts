@@ -11,6 +11,7 @@ import { ContentService } from '../services/content.service';
 export class ContentListComponent implements OnInit {
   content: Content[];
   titleBinding: string;
+  rippleColour = '#9C27B0';
 
   constructor(private contentService: ContentService) {
     this.content = [];
