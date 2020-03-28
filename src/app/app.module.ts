@@ -19,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule, MatRippleModule} from '@angular/material';
-import { AddContentComponent } from './add-content/add-content.component';
 
 
 @NgModule({
@@ -31,8 +30,7 @@ import { AddContentComponent } from './add-content/add-content.component';
     ContentFilterPipe,
     DecorationDirective,
     CreateContentComponent,
-    MessagesComponent,
-    AddContentComponent
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

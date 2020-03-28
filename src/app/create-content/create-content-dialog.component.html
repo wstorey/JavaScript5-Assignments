@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Add New Content</h1>
+<div mat-dialog-content>
+  <label for="title">Title:</label>
+  <input [(ngModel)]="data.newContentItem.title" type="text" name="title" id="title"/><br/>
+
+  <label for="author">Author:</label>
+  <input [(ngModel)]="data.newContentItem.author" type="text" name="author" id="author"/><br/>
+
+  <label for="body">Body:</label>
+  <input [(ngModel)]="data.newContentItem.body" type="text" name="body" id="body"/><br/>
+
+  <label for="imgUrl">Image:</label>
+  <input [(ngModel)]="data.newContentItem.imgUrl" type="text" name="imgUrl" id="imgUrl"/><br/>
+
+  <label for="type">Type:</label>
+  <input [(ngModel)]="data.newContentItem.type" type="text" name="type" id="type"/><br/>
+
+  <label for="tags">One Tag:</label>
+  <input [(ngModel)]="data.newContentItem.tags" type="text" name="tags" id="tags"/><br/>
+
+  <button (click)="createContent(title, author, body, imgUrl, type, tags)">Submit</button>
+<!--  <div class="error">{{ this.validator }}</div>-->
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.newBandItem" cdkFocusInitial>Submit</button>
+</div>
