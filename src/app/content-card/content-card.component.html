@@ -18,7 +18,9 @@
   <mat-card-title appDecoration decoration="underline">{{ content.title }}</mat-card-title>
     <mat-divider></mat-divider>
     <p>By: {{ content.author }}</p>
-    <p>Type: {{ content.type }}</p>
+    <mat-chip-list>
+      <mat-chip color="accent" selected>Type: {{ content.type }}</mat-chip>
+    </mat-chip-list>
     <span *ngIf="content.tags">
       <p>Tags:</p>
       <ul *ngFor="let tag of content.tags">

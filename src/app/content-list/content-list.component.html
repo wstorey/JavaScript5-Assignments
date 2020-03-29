@@ -8,7 +8,7 @@
     <input matInput placeholder="Find Title" #titleToFind/>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="findTitle(titleToFind.value)"><div matRipple [matRippleColor]="rippleColour">Search</div></button>
+  <button mat-raised-button color="primary" (click)="findTitle(titleToFind.value)">Search</button>
   <p>{{ titleBinding }}</p>
 </article>
 
