@@ -17,6 +17,10 @@ export class ContentService {
     this.messageService.add('Content Retrieved!');
     return this.http.get<Content[]>('api/content');
   }
+  getContentItem(id: number): Observable<Content> {
+    console.log('Observable item', id);
+    return this.http.get<Content>('api/content/' + id);
+  }
   addContent(content: Content): Observable<Content> {
     this.messageService.add('Content Added!');
     return this.http.post<Content>('api/content', content, this.httpOptions);

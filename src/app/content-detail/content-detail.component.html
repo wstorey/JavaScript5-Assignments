@@ -1,0 +1,15 @@
+<h2 appDecoration decoration="underline">Title: {{ content.title }}</h2>
+<p>By: {{ content.author }}</p>
+<mat-chip-list>
+  <mat-chip color="accent" selected>Type: {{ content.type }}</mat-chip>
+</mat-chip-list>
+<mat-divider></mat-divider>
+<p>{{ content.body }}</p>
+<img src="{{ content.imgUrl || 'https://cdn.theatlantic.com/static/mt/assets/science/cat_caviar.jpg' }}" alt="{{ content.title }}"/>
+<span *ngIf="content.tags">
+  <p>Tags:</p>
+  <ul *ngFor="let tag of content.tags">
+      <li appDecoration decoration="bold">{{ tag }}</li>
+  </ul>
+</span>
+<a routerLink="" routerLinkActive="active">Return Home</a>

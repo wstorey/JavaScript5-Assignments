@@ -22,6 +22,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatRippleModule } from '@angular/material/core';
 import {MatChipsModule} from '@angular/material';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import {MatChipsModule} from '@angular/material';
     DecorationDirective,
     CreateContentComponent,
     CreateContentDialogComponent,
-    MessagesComponent
+    MessagesComponent,
+    ContentDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,11 @@ import {MatChipsModule} from '@angular/material';
     MatDialogModule,
     MatRippleModule,
     MatChipsModule,
+    RouterModule.forRoot([
+      { path: 'content/:id', component: ContentDetailComponent },
+      { path: '', component: ContentListComponent },
+      { path: '**', component: NotFoundComponent}
+    ]),
   ],
   entryComponents: [
     CreateContentComponent,
