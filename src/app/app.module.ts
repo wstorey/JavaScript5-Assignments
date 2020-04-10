@@ -25,6 +25,8 @@ import {MatChipsModule} from '@angular/material';
 import { ContentDetailComponent } from './content-detail/content-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -63,6 +65,7 @@ import { RouterModule } from '@angular/router';
       { path: '', component: ContentListComponent },
       { path: '**', component: NotFoundComponent}
     ]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   entryComponents: [
     CreateContentComponent,
